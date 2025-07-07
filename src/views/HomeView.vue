@@ -7,11 +7,11 @@
       placeholder="Item Description"
       class="border p-2 rounded w-full"
     />
-    <input 
+    <input
       v-model.number="quantity"
       type="text"
       placeholder="Quantity"
-      class="border p-2  rounded w-full"
+      class="border p-2 rounded w-full"
     />
     <input
       v-model.number="price"
@@ -21,18 +21,23 @@
     />
 
     <!-- Add Button -->
-    <button @click="addItem" class="bg-blue-600 text-white px-4 py-2 rounded ">
+    <button @click="addItem" class="bg-blue-600 text-white px-4 py-2 rounded">
       Add Item
     </button>
 
     <!-- Items List -->
-    <div v-for="(item, index) in items" :key="index" class="border p-2 rounded bg-gray-50 flex gap-10">
+    <div
+      v-for="(item, index) in items"
+      :key="index"
+      class="border w-[1000px] p-2 rounded bg-gray-500 flex gap-[10px]"
+    >
       <p>
-        <span>Quantity:</span>
-        <strong class="w-full">{{ item.description }}</strong></p>
+        <span>Description:</span>
+        {{ item.description }}
+      </p>
 
       <p>
-        <span c>Quantity:</span>
+        <span>Quantity:</span>
         {{ item.quantity }}
       </p>
       <p>
@@ -54,31 +59,31 @@
 export default {
   data() {
     return {
-      description: '',
-      quantity: '',
+      description: "",
+      quantity: "",
       price: 0,
       items: [],
-      total: 0
+      total: 0,
     };
   },
   methods: {
     addItem() {
       if (!this.description || this.price <= 0) {
-        alert('Please enter a valid description and price.');
+        alert("Please enter a valid description and price.");
         return;
       }
 
       const newItem = {
         description: this.description,
         quantity: this.quantity,
-        price: this.price
+        price: this.price,
       };
 
       this.items.push(newItem);
 
       // clear inputs
-      this.description = '';
-      this.quantity = '';
+      this.description = "";
+      this.quantity = "";
       this.price = 0;
 
       // update total
@@ -87,8 +92,7 @@ export default {
 
     updateTotal() {
       this.total = this.items.reduce((sum, item) => sum + item.price, 0);
-    }
-  }
+    },
+  },
 };
 </script>
-
