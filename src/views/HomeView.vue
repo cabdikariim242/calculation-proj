@@ -7,11 +7,11 @@
       placeholder="Item Description"
       class="border p-2 rounded w-full"
     />
-    <input
+    <input 
       v-model.number="quantity"
-      type="number"
+      type="text"
       placeholder="Quantity"
-      class="border p-2 rounded w-full"
+      class="border p-2  rounded w-full"
     />
     <input
       v-model.number="price"
@@ -21,7 +21,7 @@
     />
 
     <!-- Add Button -->
-    <button @click="addItem" class="bg-blue-600 text-white px-4 py-2 rounded">
+    <button @click="addItem" class="bg-blue-600 text-white px-4 py-2 rounded ">
       Add Item
     </button>
 
@@ -29,14 +29,18 @@
     <div v-for="(item, index) in items" :key="index" class="border p-2 rounded bg-gray-50 flex gap-10">
       <p>
         <span>Quantity:</span>
-        <strong>{{ item.description }}</strong></p>
+        <strong class="w-full">{{ item.description }}</strong></p>
 
       <p>
-        <span>Quantity:</span>
+        <span c>Quantity:</span>
         {{ item.quantity }}
       </p>
       <p>
         <span>Price:</span>
+        ${{ item.price }}
+      </p>
+      <p>
+        <span>total:</span>
         ${{ item.price }}
       </p>
     </div>
@@ -51,7 +55,7 @@ export default {
   data() {
     return {
       description: '',
-      quantity: 0,
+      quantity: '',
       price: 0,
       items: [],
       total: 0
@@ -74,7 +78,7 @@ export default {
 
       // clear inputs
       this.description = '';
-      this.quantity = 0;
+      this.quantity = '';
       this.price = 0;
 
       // update total
