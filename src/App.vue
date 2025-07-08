@@ -3,12 +3,34 @@
   <result
     v-if="showResult"
     :items="items"
-    @go-back="showResult = false"
+    @go-back="clearform"
   />
 
   <!-- Form View -->
-  <div v-else class="flex flex-col justify-center items-center h-screen gap-3">
+  <div v-else class="grid grid-col-2 justify-center items-center h-screen gap-3">
+   
     <input
+      v-model="name"
+      type="text"
+      placeholder="Customer Name"
+      class="p-2 border rounded w-64"
+    />
+
+    <input
+      v-model="number"
+      type="number"
+      placeholder="Customer Number"
+      class="p-2 border rounded w-64"
+    />
+
+    <input
+      v-model="served"
+      type="text"
+      placeholder="Served by"
+      class="p-2 border rounded w-64"
+    />
+
+     <input
       v-model="itemDescription"
       type="text"
       placeholder="Item Description"
@@ -27,7 +49,39 @@
       class="p-2 border rounded w-64"
     />
 
-    <button
+    <input
+      v-model.number="discount"
+      type="number"
+      placeholder="Discount"
+      class="p-2 border rounded w-64"
+    />
+    <input
+      v-model.number="subtotal"
+      type="number"
+      placeholder="Subtotal"
+      class="p-2 border rounded w-64"
+    />
+    <input
+      v-model.number="tax"
+      type="number"
+      placeholder="Tax"
+      class="p-2 border rounded w-64"
+    />
+    <input
+      v-model.number="paid"
+      type="number"
+      placeholder="Paid"
+      class="p-2 border rounded w-64"
+    />
+    <input
+      v-model.number="balance"
+      type="number"
+      placeholder="Balance"
+      class="p-2 border rounded w-64"
+    />
+
+    <div class="flex gap-4 mt-4">
+      <button
       class="bg-green-600 text-white py-2 px-4 rounded"
       @click="addItem"
     >
@@ -40,6 +94,7 @@
     >
        Submit All
     </button>
+    </div>
   </div>
 </template>
 
@@ -52,8 +107,14 @@ export default {
   data() {
     return {
       itemDescription: '',
-      quantity: '',
+      name: '',
+      served: '',
+      number: null,
+      quantity: null,
       price: null,
+      discount: null,
+      subtotal: null,
+      tax: null,
       items: [],
       showResult: false,
     };
@@ -69,15 +130,32 @@ export default {
         description: this.itemDescription,
         quantity: this.quantity,
         price: this.price,
+        discount: this.discount,
+        subtotal: this.subtotal,
+        tax: this.tax,
+        paid: this.paid,
+        balance: this.balance,
+        name: this.name,
+        served: this.served,
         total: this.quantity * this.price,
+        number: this.number,
       };
 
       this.items.push(item);
 
       // clear form
       this.itemDescription = '';
+      this.name = '';
       this.quantity = 0;
       this.price = 0;
+      this.price = 0;
+      this.discount = 0;
+      this.subtotal = 0;
+      this.tax = 0;
+      this.balance = 0;
+      this.paid = 0;
+      this.number = 0;
+      this.served = '';
     },
     submitForm() {
       if (this.items.length === 0) {
@@ -85,7 +163,11 @@ export default {
         return;
       }
       this.showResult = true;
+    },
+    clearform() {
+       this.items = [];
+      this.showResult = false;
     }
-  }
-};
+  },
+  };
 </script>

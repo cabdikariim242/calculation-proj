@@ -8,9 +8,17 @@
         :key="index"
         class="border-b pb-2"
       >
+        <p><strong>Customer Name:</strong> {{ item.name }}</p>
+        <p><strong>Customer Number:</strong> {{ item.number }}</p>
+        <p><strong>Served by:</strong> {{ item.served }}</p>
         <p><strong>Description:</strong> {{ item.description }}</p>
-        <p><strong>Quantity:</strong> {{ item.quantity }} PC</p>
+        <p><strong>Quantity:</strong> {{ item.quantity }}{{ item.description }}</p>
         <p><strong>Price:</strong> ${{ item.price }}</p>
+        <p><strong>sub total:</strong> ${{ item.subtotal }}</p>
+        <p><strong>Discount:</strong> ${{ item.discount }}</p>
+        <p><strong>PAID:</strong> ${{ item.paid }}</p>
+        <p><strong>Balance:</strong> ${{ item.balance }}</p>
+        <p><strong>Tax:</strong> ${{ item.tax }}</p>
         <p><strong>Total:</strong> ${{ item.total }}</p>
       </li>
     </ul>
@@ -19,6 +27,7 @@
     <p class="mt-4 font-bold text-green-700 text-lg">
       Grand Total: ${{ totalPrice }}
     </p>
+
 
     <button
       @click="$emit('go-back')"
@@ -38,6 +47,7 @@ export default {
       required: true
     }
   },
+
   computed: {
     totalPrice() {
       return this.items.reduce((sum, item) => sum + item.total, 0);
