@@ -5,10 +5,11 @@
     :items="items"
     @go-back="clearform"
   />
+  
 
   <!-- Form View -->
-  <div v-else class="grid grid-col-2 justify-center items-center h-screen gap-3">
-   
+  <div v-else class="flex flex-col justify-center items-center h-screen gap-3">
+
     <input
       v-model="name"
       type="text"
@@ -116,7 +117,7 @@ export default {
       subtotal: null,
       tax: null,
       items: [],
-      showResult: false,
+      showResult: true,
     };
   },
   methods: {
@@ -146,15 +147,15 @@ export default {
       // clear form
       this.itemDescription = '';
       this.name = '';
-      this.quantity = 0;
-      this.price = 0;
-      this.price = 0;
-      this.discount = 0;
-      this.subtotal = 0;
-      this.tax = 0;
-      this.balance = 0;
-      this.paid = 0;
-      this.number = 0;
+      this.quantity = null;
+      this.price = null;
+      this.price = null;
+      this.discount = null;
+      this.subtotal = null;
+      this.tax = null;
+      this.balance = null;
+      this.paid = null;
+      this.number = null;
       this.served = '';
     },
     submitForm() {
