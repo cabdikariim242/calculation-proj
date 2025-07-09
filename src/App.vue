@@ -114,10 +114,12 @@ export default {
       quantity: null,
       price: null,
       discount: null,
+      balance: null,
+      paid: null,
       subtotal: null,
       tax: null,
       items: [],
-      showResult: true,
+      showResult: false,
     };
   },
   methods: {

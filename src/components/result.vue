@@ -28,8 +28,8 @@
         </div>
         <div class="mr-5 lg:mr-20 md:mr-20">
           <h1 class="font-bold text-[#0ace7cd8] text-[17px]">BILL TO</h1>
-          <p class="font-bold text-[#0ace7cd8] text-[14px]">awoowe</p>
-          <p class="font-[400]">619538337</p>
+          <p class="font-bold text-[#0ace7cd8] text-[14px]">{{items[0]?.name}}</p>
+          <p class="font-[400]">{{items[0]?.number}}</p>
         </div>
       </div>
     </div>
@@ -47,20 +47,25 @@
           </tr>
         </thead>
         <tbody class="bg-white text-sm">
-          <tr class="border-b border-gray-300">
-            <td class="px-2 py-1">1</td>
-            <td class="px-4 py-2 font-semibold">a04e aa (LCD)</td>
-            <td class="px-4 py-2">1 PC</td>
-            <td class="px-4 py-2">$7</td>
-            <td class="px-4 py-2 text-green-700 font-semibold">$7</td>
-          </tr>
+          <tr
+    v-for="(item, index) in items"
+    :key="index"
+    class="border-b border-gray-300"
+  >
+    <td class="px-2 py-1">{{ index + 1 }}</td>
+    <td class="px-4 py-2 font-semibold">{{ item.description }}</td>
+    <td class="px-4 py-2">{{ item.quantity }} PC</td>
+    <td class="px-4 py-2">${{ item.price }}</td>
+    <td class="px-4 py-2 text-green-700 font-semibold">${{ item.total }}</td>
+  </tr>
+         
         </tbody>
       </table>
     </div>
 
     <!-- fourth section -->
 
-    <div class="flex justify-between lg:mx-10 md:mx-10 ml-2  mt-6 border-b-2  border-green-300">
+    <div class="flex justify-between lg:mx-10 md:mx-10 ml-2  mt-6 border-b-2  border-green-300 ">
       <div>
         <div>
           <h1 class="font-bold text-[#0ace7cd8] text-[17px]">Payment Info</h1>
@@ -69,7 +74,7 @@
 
         <div class=" ">
           <h1 class="font-bold text-[#0ace7cd8] text-[17px]">Served by</h1>
-          <p>Awoowe</p>
+          <p>{{items[0]?.served}}</p>
         </div>
         <div>
           <img class="w-[200px]"
@@ -80,41 +85,41 @@
         
 
       </div>
-      <div class="w-full lg:w-auto md:w-auto sm:auto  mr-0">
+      <div class="w-full lg:w-auto md:w-auto sm:auto mb-4  mr-0">
          <div class="mb-[16px]">
-           <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-10 md:pr-10 pr-2">TOTAL AMOUNT</span>
-           <span class="bg-teal-400 font-bold text-white py-2 pl-4 pr-8">$19</span>
+           <span class=" bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-10 md:pr-10 pr-3">TOTAL AMOUNT</span>
+           <span class="inline-block bg-teal-400 font-bold text-white py-[6px] pl-4 w-[70px] lg:w-[140px] md:w-[140px]">${{ totalPrice }}</span>
            
          </div> 
          <div class="mb-[16px]">
            <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[82px] md:pr-[82px] pr-[50px]">DISCOUNT</span>
-           <span class="bg-teal-400 font-bold text-white py-2 pl-4 pr-8">$19</span>
+           <span class="inline-block bg-teal-400 font-bold text-white py-[6px] pl-4 w-[70px] lg:w-[140px] md:w-[140px]">${{items[0]?.discount}}</span>
            
          </div> 
          <div class="mb-[16px]">
            <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[86px] md:pr-[86px] pr-[51.5px]">SUBTOTAL</span>
-           <span class="bg-teal-400 font-bold text-white py-2 pl-4 pr-8">$19</span>
+           <span class="inline-block bg-teal-400 font-bold text-white py-[6px] pl-4 pr-8 w-[70px] lg:w-[140px] md:w-[140px]">${{items[0]?.subtotal}}</span>
            
          </div> 
          <div class="mb-[16px]">
            <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[66px] md:pr-[66px] pr-[33px]">TAX(VAT 0%)</span>
-           <span class="bg-teal-400 font-bold text-white py-2 pl-4 pr-8">$19</span>
-           
+           <span class="bg-teal-400 font-bold text-white py-[6px] pl-4 inline-block w-[70px] lg:w-[140px] md:w-[140px]">${{items[0]?.tax}}</span>
+
          </div> 
          <div class="mb-[16px]">
            <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[123px] md:pr-[123px] pr-[91px]">PAID</span>
-           <span class="bg-teal-400 font-bold text-white py-2 pl-4 pr-8">$19</span>
-           
+           <span class="inline-block bg-teal-400 font-bold text-white py-[6px] pl-4 w-[70px] lg:w-[140px] md:w-[140px]">${{items[0]?.paid}}</span>
+
          </div> 
          <div>
            <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[90px] md:pr-[90px] pr-[57px]">BALANCE</span>
-           <span class="bg-teal-400 font-bold text-white py-2 pl-4 pr-8">$19</span>
-           
-         </div> 
-          
+           <span class="inline-block bg-teal-400 font-bold text-white py-[6px] pl-4 w-[70px] lg:w-[140px] md:w-[140px]">${{items[0]?.balance}}0803</span>
+
+         </div>
+
         </div>
     </div>
-    <h1 class="font-bold text-green-700 mt-5 mb-20 ml-10">thank you for the purchase</h1>
+    <h1 class="font-bold text-green-700 mt-5 mb-20 ml-10">thank you {{ items[0]?.name }} for the purchase</h1>
   </div>
 </template>
 
