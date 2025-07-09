@@ -1,103 +1,149 @@
 <template>
   <div class="mt-0">
-
     <!-- nav bar section -->
-    <div class="flex  justify-between items-center text-black ">
+    <div class="flex justify-between items-center text-black">
       <div class="bg-gray-700 rounded">
-        <img class="w-[200px] bg-gray-700" src="../assets/Black and Blue Mobile Phone Repair Logo.png" alt="LOGO">
-
-       </div>
-       <div class="mr-20">
+        <img
+          class="w-[200px] bg-gray-700"
+          src="../assets/Black and Blue Mobile Phone Repair Logo.png"
+          alt="LOGO"
+        />
+      </div>
+      <div class=" lg:mr-20 md:mr-20">
         <h1 class="font-bold text-[#0ace7cd8] text-[30px]">SALES</h1>
         <P class="font-bold text-[12px]">JUN 04, 2025</P>
-
       </div>
     </div>
     <div>
       <!-- hero section -->
 
-      <div class="flex  justify-between items-center text-black ">
-        <div class="ml-10">
-          <h1 class="font-bold text-[#0ace7cd8] text-[20px]">AWOOWE  ELECTRONICS</h1>
-          <P>Soobe, Abdishideeye, somalia</P>
+      <div class="flex justify-between items-center text-black">
+        <div class="ml-5 lg:ml-20 md:ml-20">
+          <h1 class="font-bold text-[#0ace7cd8] text-[20px]">
+            AWOOWE ELECTRONICS
+          </h1>
+          <p>Soobe, Abdishideeye, somalia</p>
           <p>0619538337/0612498658</p>
           <p>awoowe@gmail.com</p>
         </div>
-        <div class="mr-20">
+        <div class="mr-5 lg:mr-20 md:mr-20">
           <h1 class="font-bold text-[#0ace7cd8] text-[17px]">BILL TO</h1>
           <p class="font-bold text-[#0ace7cd8] text-[14px]">awoowe</p>
           <p class="font-[400]">619538337</p>
         </div>
-            </div>
-
       </div>
+    </div>
 
-      <!-- third section -->
-      <div class="mt-10">
-         <table class="min-w-full border border-gray-300">
-      <thead>
-        <tr class="bg-teal-700 text-white text-left">
-          <th class="px-4 py-2 border-r border-white">#</th>
-          <th class="px-4 py-2 border-r border-white">Item Description</th>
-          <th class="px-4 py-2 border-r border-white">Quantity</th>
-          <th class="px-4 py-2">Price</th>
-        </tr>
-      </thead>
-      <tbody class="bg-white text-sm">
-        <tr class="border-b border-gray-300">
-          <td class="px-4 py-2">1</td>
-          <td class="px-4 py-2 font-semibold">a04e aa (LCD)</td>
-          <td class="px-4 py-2">1 PC</td>
-          <td class="px-4 py-2 text-green-700 font-semibold">$7</td>
-        </tr>
-      </tbody>
-    </table>
-      </div>
+    <!-- third section -->
+    <div class="mt-10 ml-5 mr-5">
+      <table class="min-w-full border border-gray-300">
+        <thead>
+          <tr class="bg-teal-700 text-white text-left">
+            <th class="px-2 py-1 border-r border-white">#</th>
+            <th class="px-4 py-2 border-r border-white">Item Description</th>
+            <th class="px-4 py-2 border-r border-white">Quantity</th>
+            <th class="px-4 py-2 border-r">Price</th>
+            <th class="px-4 py-2">Total</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white text-sm">
+          <tr class="border-b border-gray-300">
+            <td class="px-2 py-1">1</td>
+            <td class="px-4 py-2 font-semibold">a04e aa (LCD)</td>
+            <td class="px-4 py-2">1 PC</td>
+            <td class="px-4 py-2">$7</td>
+            <td class="px-4 py-2 text-green-700 font-semibold">$7</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-      <!-- fourth section -->
+    <!-- fourth section -->
 
+    <div class="flex justify-between lg:mx-10 md:mx-10 ml-2  mt-6 border-b-2  border-green-300">
       <div>
         <div>
+          <h1 class="font-bold text-[#0ace7cd8] text-[17px]">Payment Info</h1>
+          <p>evc0619538337/ <br>edhab 0629538337</p>
+        </div>
+
+        <div class=" ">
+          <h1 class="font-bold text-[#0ace7cd8] text-[17px]">Served by</h1>
+          <p>Awoowe</p>
+        </div>
+        <div>
+          <img class="w-[200px]"
+            src="../assets/Black and Blue Mobile Phone Repair Logo.png"
+            alt=""
+          />
+        </div>
+        
+
+      </div>
+      <div class="w-full lg:w-auto md:w-auto sm:auto  mr-0">
+         <div class="mb-[16px]">
+           <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-10 md:pr-10 pr-2">TOTAL AMOUNT</span>
+           <span class="bg-teal-400 font-bold text-white py-2 pl-4 pr-8">$19</span>
+           
+         </div> 
+         <div class="mb-[16px]">
+           <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[82px] md:pr-[82px] pr-[50px]">DISCOUNT</span>
+           <span class="bg-teal-400 font-bold text-white py-2 pl-4 pr-8">$19</span>
+           
+         </div> 
+         <div class="mb-[16px]">
+           <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[86px] md:pr-[86px] pr-[51.5px]">SUBTOTAL</span>
+           <span class="bg-teal-400 font-bold text-white py-2 pl-4 pr-8">$19</span>
+           
+         </div> 
+         <div class="mb-[16px]">
+           <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[66px] md:pr-[66px] pr-[33px]">TAX(VAT 0%)</span>
+           <span class="bg-teal-400 font-bold text-white py-2 pl-4 pr-8">$19</span>
+           
+         </div> 
+         <div class="mb-[16px]">
+           <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[123px] md:pr-[123px] pr-[91px]">PAID</span>
+           <span class="bg-teal-400 font-bold text-white py-2 pl-4 pr-8">$19</span>
+           
+         </div> 
+         <div>
+           <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[90px] md:pr-[90px] pr-[57px]">BALANCE</span>
+           <span class="bg-teal-400 font-bold text-white py-2 pl-4 pr-8">$19</span>
+           
+         </div> 
           
         </div>
-        <div></div>
-      </div>
-     
-
-
-      </div>
-
+    </div>
+    <h1 class="font-bold text-green-700 mt-5 mb-20 ml-10">thank you for the purchase</h1>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Result',
+  name: "Result",
   props: {
     items: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
 
   computed: {
     totalPrice() {
       return this.items.reduce((sum, item) => sum + item.total, 0);
-    }
-  }
+    },
+  },
 };
 </script>
 
+<style>
+body{
+  padding:0;
+  margin:0;
+}
+</style>
 
-
-
-
-
-
-
-
-
-
- <!-- <div class="flex flex-col gap-3 mx-5  ">
+<!-- <div class="flex flex-col gap-3 mx-5  ">
        <div class="flex bg-green-500 text-white font-bold py-3">
         <p class="flex-1 pl-3">item description</p>
         <p class="mr-5">Quantity</p>
