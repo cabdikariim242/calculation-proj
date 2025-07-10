@@ -53,7 +53,7 @@
   >
     <td class="px-2 py-1">{{ index + 1 }}</td>
     <td class="px-4 py-2 font-semibold">{{ item.description }}</td>
-    <td class="px-4 py-2">{{ item.quantity }} PC</td>
+    <td class="px-4 py-2">{{ item.quantity }} {{ item.description }} PC</td>
     <td class="px-4 py-2">${{ item.price }}</td>
     <td class="px-4 py-2 text-green-700 font-semibold">${{ item.total }}</td>
   </tr>
@@ -111,9 +111,7 @@
     </div>
     <h1 class="font-bold text-green-700 mt-5 mb-20 ml-10">thank you {{ items[0]?.name }} for the purchase</h1>
 
-    <button onclick="window.print()" class="bg-blue-500 text-white px-4 py-2 rounded">
-  Print
-</button>
+    <button class="print-button bg-blue-600  py-2 px-4 rounded ml-6 mb-6 text-white font-bold" onclick="window.print()">Print Receipt</button>
 
   </div>
 </template>
@@ -140,7 +138,7 @@ export default {
 
   computed: {
     totalPrice() {
-      return this.items.reduce((sum, item) => sum + item.total - item.discount, 0);
+      return this.items.reduce((sum, item) => sum + item.total , 0);
     },
   },
 };
@@ -151,19 +149,61 @@ body{
   padding:0;
   margin:0;
 }
+
+@media print {
+  /* Make sure colors and backgrounds are printed */
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: white;
+  }
+
+  /* Center the content on the page */
+  #receipt {
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Hide elements like buttons */
+  .print-button, .no-print {
+    display: none !important;
+  }
+
+  th, td {
+    padding: 8px !important;
+    text-align: left !important;
+    font-size: 12px !important;
+  }
+
+
+  @media print {
+  .print-button {
+    display: none !important;
+  }
+}
+
+ 
+
+  /* Background colors */
+  .bg-teal-500, .bg-teal-400 {
+    background-color: #14b8a6 !important; /* Tailwind's teal */
+    color: white !important;
+  }
+
+  .bg-gray-100,
+  .bg-gray-200 {
+    background-color: #e5e7eb !important;
+  }
+
+
+
+
+
+  /* Avoid page breaks inside tables */
+  table {
+    page-break-inside: avoid !important;
+  }
+}
+
 </style>
-
-<!-- <div class="flex flex-col gap-3 mx-5  ">
-       <div class="flex bg-green-500 text-white font-bold py-3">
-        <p class="flex-1 pl-3">item description</p>
-        <p class="mr-5">Quantity</p>
-        <p class="mr-5">price</p>
-        <p class="mr-5">total</p>
-       </div>
-       <div class="flex font-bold py-3  ">
-        <p class="flex-1 ">milk</p>
-        <p class="mr-5">4 </p>
-        <p class="mr-5">100</p>
-        <p class="mr-5">400</p>
-
-       </div> -->
