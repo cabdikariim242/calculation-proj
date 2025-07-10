@@ -57,18 +57,6 @@
       class="p-2 border rounded w-64"
     />
     <input
-      v-model.number="subtotal"
-      type="number"
-      placeholder="Subtotal"
-      class="p-2 border rounded w-64"
-    />
-    <input
-      v-model.number="tax"
-      type="number"
-      placeholder="Tax"
-      class="p-2 border rounded w-64"
-    />
-    <input
       v-model.number="paid"
       type="number"
       placeholder="Paid"
@@ -133,9 +121,7 @@ export default {
         description: this.itemDescription,
         quantity: this.quantity,
         price: this.price,
-        discount: this.discount,
-        subtotal: this.subtotal,
-        tax: this.tax,
+        discount: this.paid - this.discount,
         paid: this.paid,
         balance: this.balance,
         name: this.name,

@@ -11,7 +11,7 @@
       </div>
       <div class=" lg:mr-20 md:mr-20">
         <h1 class="font-bold text-[#0ace7cd8] text-[30px]">SALES</h1>
-        <P class="font-bold text-[12px]">JUN 04, 2025</P>
+        <P class="font-bold text-[12px]">{{data.month}} {{data.day}}, {{data.year}}</P>
       </div>
     </div>
     <div>
@@ -23,8 +23,7 @@
             AWOOWE ELECTRONICS
           </h1>
           <p>Soobe, Abdishideeye, somalia</p>
-          <p>0619538337/0612498658</p>
-          <p>awoowe@gmail.com</p>
+          <p>0619538337</p>
         </div>
         <div class="mr-5 lg:mr-20 md:mr-20">
           <h1 class="font-bold text-[#0ace7cd8] text-[17px]">BILL TO</h1>
@@ -96,16 +95,7 @@
            <span class="inline-block bg-teal-400 font-bold text-white py-[6px] pl-4 w-[70px] lg:w-[140px] md:w-[140px]">${{items[0]?.discount}}</span>
            
          </div> 
-         <div class="mb-[16px]">
-           <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[86px] md:pr-[86px] pr-[51.5px]">SUBTOTAL</span>
-           <span class="inline-block bg-teal-400 font-bold text-white py-[6px] pl-4 pr-8 w-[70px] lg:w-[140px] md:w-[140px]">${{items[0]?.subtotal}}</span>
            
-         </div> 
-         <div class="mb-[16px]">
-           <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[66px] md:pr-[66px] pr-[33px]">TAX(VAT 0%)</span>
-           <span class="bg-teal-400 font-bold text-white py-[6px] pl-4 inline-block w-[70px] lg:w-[140px] md:w-[140px]">${{items[0]?.tax}}</span>
-
-         </div> 
          <div class="mb-[16px]">
            <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[123px] md:pr-[123px] pr-[91px]">PAID</span>
            <span class="inline-block bg-teal-400 font-bold text-white py-[6px] pl-4 w-[70px] lg:w-[140px] md:w-[140px]">${{items[0]?.paid}}</span>
@@ -113,19 +103,34 @@
          </div> 
          <div>
            <span class="bg-teal-500 font-bold text-white text-[15px] py-2 ml-5  lg:pl-4 md:pl-4 pl-[5px] lg:pr-[90px] md:pr-[90px] pr-[57px]">BALANCE</span>
-           <span class="inline-block bg-teal-400 font-bold text-white py-[6px] pl-4 w-[70px] lg:w-[140px] md:w-[140px]">${{items[0]?.balance}}0803</span>
+           <span class="inline-block bg-teal-400 font-bold text-white py-[6px] pl-4 w-[70px] lg:w-[140px] md:w-[140px]">${{items[0]?.balance}}</span>
 
          </div>
 
         </div>
     </div>
     <h1 class="font-bold text-green-700 mt-5 mb-20 ml-10">thank you {{ items[0]?.name }} for the purchase</h1>
+
+    <button onclick="window.print()" class="bg-blue-500 text-white px-4 py-2 rounded">
+  Print
+</button>
+
   </div>
 </template>
 
 <script>
 export default {
   name: "Result",
+  data() {
+    const today = new Date();
+    return {
+      data:{
+      month: today.toLocaleString('default', { month: 'long' }),
+      day: today.getDate(),
+      year: today.getFullYear(),
+      }
+    };
+  },
   props: {
     items: {
       type: Array,
@@ -135,7 +140,7 @@ export default {
 
   computed: {
     totalPrice() {
-      return this.items.reduce((sum, item) => sum + item.total, 0);
+      return this.items.reduce((sum, item) => sum + item.total - item.discount, 0);
     },
   },
 };
